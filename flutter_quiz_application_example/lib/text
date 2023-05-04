@@ -1,0 +1,185 @@
+
+var _dataMap = [
+    {
+      'questionText':
+          'Do you want another cake?    - No, thank you. I\'ve still got ________. ',
+      'answer': [
+        {'text': 'some', 'score': 'A'},
+        {'text': 'someone\'s ', 'score': 'B'},
+        {'text': 'some ones', 'score': 'C'},
+        {'text': 'ones', 'score': 'D'},
+      ],
+    },
+    {
+      'questionText': '________ clever people!',
+      'answer': [
+        {'text': 'What a', 'score': 'A'},
+        {'text': 'What', 'score': 'B'},
+        {'text': 'How', 'score': 'C'},
+        {'text': 'So', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': 'They gave ________ .',
+      'answer': [
+        {'text': 'the girls some books', 'score': 'A'},
+        {'text': 'to the girls some books', 'score': 'B'},
+        {'text': 'to them some books', 'score': 'C'},
+        {'text': 'some books the girls', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': 'I can\'t say who ________ the answer.',
+      'answer': [
+        {'text': 'is knowing', 'score': 'A'},
+        {'text': 'knows', 'score': 'B'},
+        {'text': 'are knowing ', 'score': 'C'},
+        {'text': 'know', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': '________ I don\'t work on Saturday. ',
+      'answer': [
+        {'text': 'Always ', 'score': 'A'},
+        {'text': 'Never', 'score': 'B'},
+        {'text': 'Sometimes', 'score': 'C'},
+        {'text': 'Seldom', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': '________ the homework. ',
+      'answer': [
+        {'text': 'No every students do ', 'score': 'A'},
+        {'text': 'No every students ', 'score': 'B'},
+        {'text': 'Not every students do ', 'score': 'C'},
+        {'text': 'Not every student does', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': 'Whose is this? - It\'s ________. ',
+      'answer': [
+        {'text': 'yours', 'score': 'A'},
+        {'text': 'to Mary ', 'score': 'B'},
+        {'text': 'of him ', 'score': 'C'},
+        {'text': 'a mine ', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText':
+          'Have you ever been to Scotland? - Yes, I ________ last year. ',
+      'answer': [
+        {'text': 'was', 'score': 'A'},
+        {'text': 'was being ', 'score': 'B'},
+        {'text': 'have gone ', 'score': 'C'},
+        {'text': 'went', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': 'Where\'s the lamp? ',
+      'answer': [
+        {'text': 'The chair near the table. ', 'score': 'A'},
+        {'text': 'Its there ', 'score': 'B'},
+        {'text': 'It\'s in the room. ', 'score': 'C'},
+        {'text': 'There\'s near the door ', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': ' Are you going to work? ',
+      'answer': [
+        {'text': 'No, to the shops. ', 'score': 'A'},
+        {'text': 'No, to shopping. ', 'score': 'B'},
+        {'text': 'No, I don\'t ', 'score': 'C'},
+        {'text': 'No, I take the bus ', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': 'Next month ________ twenty-one. ',
+      'answer': [
+        {'text': 'has my sister ', 'score': 'A'},
+        {'text': 'my sister will be ', 'score': 'B'},
+        {'text': 'my sister shall have ', 'score': 'C'},
+        {'text': 'my sister going to be ', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': 'How\'s the old man? ',
+      'answer': [
+        {'text': 'He\'s sixty-five. ', 'score': 'A'},
+        {'text': 'That\'s him. ', 'score': 'B'},
+        {'text': 'He\'s much better. ', 'score': 'C'},
+        {'text': 'Mr Smith is the old man.', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': 'Did John ________ with the band yesterday? ',
+      'answer': [
+        {'text': 'sing', 'score': 'A'},
+        {'text': 'sung', 'score': 'B'},
+        {'text': 'song', 'score': 'C'},
+        {'text': 'sang', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': 'Last week John ________ his leg. ',
+      'answer': [
+        {'text': 'felt and broken ', 'score': 'A'},
+        {'text': 'fell and broke', 'score': 'B'},
+        {'text': 'feels and breaks ', 'score': 'C'},
+        {'text': 'fallen and broken ', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': 'When did you ________ to see me last? ',
+      'answer': [
+        {'text': 'go', 'score': 'A'},
+        {'text': 'went', 'score': 'B'},
+        {'text': 'came', 'score': 'C'},
+        {'text': 'come', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': 'What ________ behind the house when you were a child? ',
+      'answer': [
+        {'text': 'was there ', 'score': 'A'},
+        {'text': 'there were ', 'score': 'B'},
+        {'text': 'were there ', 'score': 'C'},
+        {'text': 'there was ', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': 'What date is it? -  It\'s ________. ',
+      'answer': [
+        {'text': 'the July fourth. ', 'score': 'A'},
+        {'text': 'the fourth of July ', 'score': 'B'},
+        {'text': 'of July the fourth ', 'score': 'C'},
+        {'text': 'fourth July ', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': 'My car was ________ . ',
+      'answer': [
+        {'text': 'in front of the his ', 'score': 'A'},
+        {'text': 'in front of his ', 'score': 'B'},
+        {'text': 'in front the his ', 'score': 'C'},
+        {'text': 'in front of he\'s ', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': 'Jack ________ his thick coat because it was snowing. ',
+      'answer': [
+        {'text': 'puts on ', 'score': 'A'},
+        {'text': 'put on ', 'score': 'B'},
+        {'text': 'takes on ', 'score': 'C'},
+        {'text': 'took on ', 'score': 'D'},
+      ]
+    },
+    {
+      'questionText': 'Choose the correct answer. Only one answer is correct. ',
+      'answer': [
+        {'text': 'Was the big brown book? ', 'score': 'A'},
+        {'text': 'Was the brown book a big? ', 'score': 'B'},
+        {'text': 'Was the big book brown? ', 'score': 'C'},
+        {'text': 'Was the brown a big book', 'score': 'D'},
+      ]
+    },
+  ];
