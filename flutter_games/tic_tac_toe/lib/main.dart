@@ -1,131 +1,124 @@
-import 'dart:ffi';
-
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
+import 'homepage.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: IntroScreen(),
+    );
+  }
+}
+
+class IntroScreen extends StatefulWidget {
+  const IntroScreen({super.key});
+
+  @override
+  State<IntroScreen> createState() => _IntroScreenState();
+}
+
+class _IntroScreenState extends State<IntroScreen>
+    with SingleTickerProviderStateMixin {
+  static var myNewFont = GoogleFonts.pressStart2p(
+      textStyle: const TextStyle(color: Colors.black, letterSpacing: 3));
+  static var myNewFontWhite = GoogleFonts.pressStart2p(
+      textStyle:
+          const TextStyle(color: Colors.white, letterSpacing: 3, fontSize: 15));
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  bool ohTurn = true; //the first player is O!
-  List<String> display_x_o = ['', '', '', '', '', '', '', '', ''];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey.shade800,
-      body: GridView.builder(
-        itemCount: 9,
-        gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-        itemBuilder: (BuildContext context, int index) {
-          return GestureDetector(
-            onTap: () {
-              _tapped(index);
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey.shade700),
-              ),
-              child: Center(
-                child: Text(
-                  display_x_o[index],
-                  style: TextStyle(color: Colors.white, fontSize: 40),
+      home: Scaffold(
+        backgroundColor: Colors.grey.shade900,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 120),
+                  child: Container(
+                    child: Text(
+                      'TIC TAC TOE',
+                      style: myNewFontWhite.copyWith(fontSize: 30),
+                    ),
+                  ),
                 ),
               ),
-            ),
-          );
-        },
+              Expanded(
+                flex: 2,
+                child: Container(
+                  child: AvatarGlow(
+                    endRadius: 180,
+                    duration: const Duration(seconds: 2),
+                    glowColor: Colors.white,
+                    repeat: true,
+                    repeatPauseDuration: const Duration(seconds: 1),
+                    startDelay: const Duration(seconds: 1),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          style: BorderStyle.none,
+                        ),
+                        shape: BoxShape.circle,
+                      ),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.grey.shade900,
+                        backgroundImage: AssetImage('assets/images/x&o.png'),
+                        radius: 90.0,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 80),
+                  child: Container(
+                    child: Text(
+                      '@CREATEDBYHARSH',
+                      style: myNewFontWhite.copyWith(fontSize: 20),
+                    ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage()),
+                  );
+                },
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(left: 40, right: 40, bottom: 60),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Container(
+                      padding: const EdgeInsets.all(30),
+                      color: Colors.white,
+                      child: Center(
+                        child: Text(
+                          'PLAY GAME',
+                          style: myNewFont,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
-  }
-
-  void _tapped(int index) {
-    setState(() {
-      if (ohTurn) {
-        display_x_o[index] = 'o';
-      } else {
-        display_x_o[index] = 'x';
-      }
-
-      ohTurn = !ohTurn;
-      _checkWinner();
-    });
-  }
-
-  void _checkWinner() {
-    //Check 1st row
-    if (display_x_o[0] == display_x_o[1] &&
-        display_x_o[0] == display_x_o[2] &&
-        display_x_o[0] != '') {
-      _showWinDialog(display_x_o[0]);
-    }
-
-    //Check 2nd row
-    if (display_x_o[3] == display_x_o[4] &&
-        display_x_o[3] == display_x_o[5] &&
-        display_x_o[3] != '') {
-      _showWinDialog(display_x_o[3]);
-    }
-    //Check 3rd row
-    if (display_x_o[6] == display_x_o[7] &&
-        display_x_o[6] == display_x_o[8] &&
-        display_x_o[6] != '') {
-      _showWinDialog(display_x_o[6]);
-    }
-    //Check 1st column
-    if (display_x_o[0] == display_x_o[3] &&
-        display_x_o[0] == display_x_o[6] &&
-        display_x_o[0] != '') {
-      _showWinDialog(display_x_o[0]);
-    }
-    //Check 2nd column
-    if (display_x_o[1] == display_x_o[4] &&
-        display_x_o[1] == display_x_o[7] &&
-        display_x_o[1] != '') {
-      _showWinDialog(display_x_o[1]);
-    }
-    //Check 3rd column
-    if (display_x_o[2] == display_x_o[5] &&
-        display_x_o[2] == display_x_o[8] &&
-        display_x_o[2] != '') {
-      _showWinDialog(display_x_o[2]);
-    }
-    //Check 1st diagnal
-    if (display_x_o[0] == display_x_o[4] &&
-        display_x_o[0] == display_x_o[8] &&
-        display_x_o[0] != '') {
-      _showWinDialog(display_x_o[0]);
-    }
-
-    //Check 2nd diagnal
-    if (display_x_o[2] == display_x_o[4] &&
-        display_x_o[2] == display_x_o[6] &&
-        display_x_o[2] != '') {
-      _showWinDialog(display_x_o[2]);
-    }
-  }
-
-  void _showWinDialog(String winner) {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Winner is : ${winner}'),
-          );
-        });
   }
 }
