@@ -61,8 +61,8 @@ class _IntroScreenState extends State<IntroScreen>
                     duration: const Duration(seconds: 2),
                     glowColor: Colors.white,
                     repeat: true,
-                    repeatPauseDuration: const Duration(seconds: 1),
-                    startDelay: const Duration(seconds: 1),
+                    repeatPauseDuration: const Duration(microseconds: 1),
+                    startDelay: const Duration(microseconds: 10),
                     child: Container(
                       decoration: BoxDecoration(
                         border: Border.all(
@@ -84,8 +84,8 @@ class _IntroScreenState extends State<IntroScreen>
                   padding: const EdgeInsets.only(top: 80),
                   child: Container(
                     child: Text(
-                      '@CREATEDBYHARSH',
-                      style: myNewFontWhite.copyWith(fontSize: 20),
+                      '@CREATED_BY_HARSH',
+                      style: myNewFontWhite.copyWith(fontSize: 15),
                     ),
                   ),
                 ),

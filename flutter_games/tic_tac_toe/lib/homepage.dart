@@ -25,56 +25,54 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          backgroundColor: Colors.grey.shade900, elevation: double.minPositive),
       backgroundColor: Colors.grey.shade900,
       body: Column(
         children: [
           Expanded(
-              child: Padding(
-            padding: const EdgeInsets.only(top: 70.0),
+            flex: 1,
             child: Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Player X',
-                          style: myNewFontWhite,
-                        ),
-                        const SizedBox(height: 15),
-                        Text(
-                          exScore.toString(),
-                          style: myNewFontWhite,
-                        ),
-                      ],
-                    ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Player X',
+                        style: myNewFontWhite,
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        exScore.toString(),
+                        style: myNewFontWhite,
+                      ),
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Player o',
-                          style: myNewFontWhite,
-                        ),
-                        const SizedBox(height: 15),
-                        Text(
-                          ohScore.toString(),
-                          style: myNewFontWhite,
-                        ),
-                      ],
-                    ),
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Player o',
+                        style: myNewFontWhite,
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        ohScore.toString(),
+                        style: myNewFontWhite,
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
-          )),
+          ),
           Expanded(
-            flex: 3,
+            flex: 4,
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: GridView.builder(
@@ -103,10 +101,14 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          Expanded(
-              child: Container(
-            color: Colors.grey.shade900,
-          )),
+          // Expanded(
+          //     flex: 1,
+          //     child: Container(
+          //       color: Colors.white, // Colors.grey.shade900,
+          //       child: Row(
+          //         children: [Icon(Icons.settings)],
+          //       ),
+          //     )),
         ],
       ),
     );
